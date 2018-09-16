@@ -8,27 +8,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonCreator {
 
-  private ArrayList<CustomerProfile> cpArray = new ArrayList<CustomerProfile>();
+  private ArrayList<Object> cpArray = new ArrayList<Object>();
 
-  public ArrayList<CustomerProfile> getCpArray() {
+  public ArrayList<Object> getCpArray() {
     return cpArray;
   }
 
-  public void setCpArray(final ArrayList<CustomerProfile> cpArray) {
+  public void setCpArray(final ArrayList<Object> cpArray) {
     this.cpArray = cpArray;
   }
 
-  public void addToCustomerProfileArray(final CustomerProfile customerProfile) {
+  public void addToCustomerProfileArray(final Object customerProfile) {
     cpArray.add(customerProfile);
   }
 
   public void printCustomerProfileArray() {
-    for (final CustomerProfile cp : cpArray) {
+    for (final Object cp : cpArray) {
       System.out.println(cp.toString() + "\n");
     }
   }
 
-  public void createSingleJsonFile(final CustomerProfile customerProfile, final String name) {
+  public void createSingleJsonFile(final Object customerProfile, final String name) {
     final ObjectMapper objectMapper = new ObjectMapper();
     final Path path = Paths.get("");
     final String dirPath = path.toAbsolutePath().toString();
@@ -42,7 +42,7 @@ public class JsonCreator {
 
   public void createJsonFilesFromArray() {
     int counter = 1;
-    for (final CustomerProfile cp : cpArray) {
+    for (final Object cp : cpArray) {
       createSingleJsonFile(cp, Integer.toString(counter));
       counter++;
     }

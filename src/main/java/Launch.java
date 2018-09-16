@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Launch {
 
   public static void main(final String[] args) {
@@ -16,11 +14,11 @@ public class Launch {
     final CustomerProfile cp2 = new CustomerProfile(c2, vroom2);
     final CustomerProfile cp3 = new CustomerProfile(c3, vroom3);
 
-    try {
+    /*try {
       cp1.writeToSingleProfileToTextFile("CP1");
     } catch (final IOException ioE) {
       ioE.printStackTrace();
-    }
+    }*/
     //Do JSON actions
     final JsonCreator j = new JsonCreator();
 
@@ -29,7 +27,6 @@ public class Launch {
     j.addToCustomerProfileArray(cp3);
 
     j.printCustomerProfileArray();
-
     j.createJsonFilesFromArray();
   }
 }
