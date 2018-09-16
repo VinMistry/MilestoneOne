@@ -1,21 +1,20 @@
 public class Car {
 
-  private String carDetails, registration, make, model, engineSize;
+  private String registration, make, model, engineSize;
 
-  public Car(final String carDetails, final String registration, final String make, final String model, final String engineSize) {
-    this.carDetails = carDetails;
+  public Car() {
+    registration = "";
+    make = "";
+    model = "";
+    engineSize = "";
+
+  }
+
+  public Car(final String registration, final String make, final String model, final String engineSize) {
     this.registration = registration;
     this.make = make;
     this.model = model;
     this.engineSize = engineSize;
-  }
-
-  public String getCarDetails() {
-    return carDetails;
-  }
-
-  public void setCarDetails(final String carDetails) {
-    this.carDetails = carDetails;
   }
 
   public String getRegistration() {
@@ -48,5 +47,14 @@ public class Car {
 
   public void setEngineSize(final String engineSize) {
     this.engineSize = engineSize;
+  }
+
+  @Override
+  public String toString() {
+    return "Car: \n" +
+        " registration: " + registration +
+        ",\n make: " + make +
+        ",\n model: " + model +
+        ",\n engineSize: " + engineSize;
   }
 }
