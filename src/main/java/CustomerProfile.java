@@ -1,15 +1,19 @@
 public class CustomerProfile {
 
   private Customer customer;
+  private Address address;
   private Car car;
 
   public CustomerProfile() {
     customer = new Customer();
+    address = new Address();
     car = new Car();
+
   }
 
-  public CustomerProfile(final Customer customer, final Car car) {
+  public CustomerProfile(final Customer customer, final Car car, final Address address) {
     this.customer = customer;
+    this.address = address;
     this.car = car;
   }
 
@@ -29,9 +33,17 @@ public class CustomerProfile {
     this.car = car;
   }
 
+  public Address getAddress() {
+    return address;
+  }
+
+  public void setAddress(final Address address) {
+    this.address = address;
+  }
+
   @Override
   public String toString() {
-    return "Customer Profile: \n" + customer.toString() + "\n" + car.toString();
+    return "Customer Profile: \n" + getCustomer().toString() + "\n" + getAddress().toString() + "\n" + getCar().toString();
   }
 
 }
