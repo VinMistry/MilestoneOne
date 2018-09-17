@@ -2,9 +2,9 @@ public class Launch {
 
   public static void main(final String[] args) {
     //Create Customer objects
-    final Customer c1 = new Customer("Vinesh", "Mistry", "BL3 6TS", "31", "Street", "Bolton");
-    final Customer c2 = new Customer("Dan", "Graef", "M2 2BT", "1", "Road", "Manchester");
-    final Customer c3 = new Customer("Jon", "Kneller", "M3 3IS", "90", "Queen", "Manchester");
+    final Customer c1 = new Customer("Vinesh", "Mistry", new Address("BL3 6TS", "31", "Street", "Bolton"));
+    final Customer c2 = new Customer("Dan", "Graef", new Address("M2 2BT", "1", "Road", "Manchester"));
+    final Customer c3 = new Customer("Jon", "Kneller", new Address("M3 3IS", "90", "Queen", "Manchester"));
     //Create Car objects
     final Car vroom1 = new Car("CFM 139W", "BMW", "M3", "1");
     final Car vroom2 = new Car("CSZ 2614", "Hyundai", "i10", "1.2");
@@ -15,7 +15,7 @@ public class Launch {
     final CustomerProfile cp3 = new CustomerProfile(c3, vroom3);
 
     /*try {
-      cp1.writeToSingleProfileToTextFile("CP1");
+      cp1.writeSingleProfileToTextFile("CP1");
     } catch (final IOException ioE) {
       ioE.printStackTrace();
     }*/

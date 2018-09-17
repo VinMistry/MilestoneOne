@@ -40,7 +40,7 @@ public class CustomerProfile {
     System.out.println(car.toString() + "\n");
   }
 
-  public void writeToSingleProfileToTextFile(final String name) throws IOException {
+  public void writeSingleProfileToTextFile(final String name) throws IOException {
     final String str = customer.toString() + "\n" + car.toString();
 
     final Path path = Paths.get("");

@@ -1,25 +1,19 @@
 public class Customer {
 
   private String firstName, lastName;
-  private String postcode, houseNumber, street, city;
+  private Address address;
 
   public Customer() {
     firstName = "";
     lastName = "";
-    postcode = "";
-    houseNumber = "";
-    street = "";
-    city = "";
+    address = new Address();
   }
 
-  public Customer(final String firstName, final String lastName, final String postcode, final String houseNumber, final String street,
-      final String city) {
+  public Customer(final String firstName, final String lastName,
+      final Address address) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.postcode = postcode;
-    this.houseNumber = houseNumber;
-    this.street = street;
-    this.city = city;
+    this.address = address;
   }
 
   public String getFirstName() {
@@ -38,46 +32,19 @@ public class Customer {
     this.lastName = lastName;
   }
 
-  public String getPostcode() {
-    return postcode;
+  public Address getAddress() {
+    return address;
   }
 
-  public void setPostcode(final String postcode) {
-    this.postcode = postcode;
-  }
-
-  public String getHouseNumber() {
-    return houseNumber;
-  }
-
-  public void setHouseNumber(final String houseNumber) {
-    this.houseNumber = houseNumber;
-  }
-
-  public String getStreet() {
-    return street;
-  }
-
-  public void setStreet(final String street) {
-    this.street = street;
-  }
-
-  public String getCity() {
-    return city;
-  }
-
-  public void setCity(final String city) {
-    this.city = city;
+  public void setAddress(final Address address) {
+    this.address = address;
   }
 
   @Override
   public String toString() {
     return "Customer: \n" +
         " firstName: " + firstName +
-        ",\n lastName: " + lastName +
-        ",\n postcode: " + postcode +
-        ",\n houseNumber: " + houseNumber +
-        ",\n street: " + street +
-        ",\n city: " + city;
+        ",\n lastName: " + lastName
+        + getAddress().toString();
   }
 }
