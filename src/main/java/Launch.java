@@ -1,3 +1,10 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
+import FileOutputs.JsonFileCreator;
+import FileOutputs.TextFileCreator;
+
 public class Launch {
 
   public static void main(final String[] args) {
@@ -14,19 +21,17 @@ public class Launch {
     final CustomerProfile cp2 = new CustomerProfile(c2, vroom2);
     final CustomerProfile cp3 = new CustomerProfile(c3, vroom3);
 
-    /*try {
-      cp1.writeSingleProfileToTextFile("CP1");
-    } catch (final IOException ioE) {
-      ioE.printStackTrace();
-    }*/
-    //Do JSON actions
-    final JsonCreator j = new JsonCreator();
+    final ArrayList<Object> j = new ArrayList<Object>();
+    j.add(cp1);
+    j.add(cp2);
+    j.add(cp3);
 
-    j.addToCustomerProfileArray(cp1);
-    j.addToCustomerProfileArray(cp2);
-    j.addToCustomerProfileArray(cp3);
-
-    j.printCustomerProfileArray();
-    j.createJsonFilesFromArray();
+    final Path path = Paths.get("");
+    final String dirPath = path.toAbsolutePath().toString() + "/outputFiles";
+    final JsonFileCreator jsonFileCreator = new JsonFileCreator(dirPath);
+    final TextFileCreator textFileCreator = new TextFileCreator(dirPath);
+    System.out.print(jsonFileCreator.getPath().toString());
+    textFileCreator.outputFilesFromArray(j);
+    jsonFileCreator.outputFilesFromArray(j);
   }
 }

@@ -44,7 +44,7 @@ public class Customer {
   public String toString() {
     return "Customer: \n" +
         " firstName: " + firstName +
-        ",\n lastName: " + lastName
+        ",\n lastName: " + lastName + "\n"
         + getAddress().toString();
   }
 }

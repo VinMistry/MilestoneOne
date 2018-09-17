@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -7,6 +6,7 @@ public class CustomerProfile {
 
   private Customer customer;
   private Car car;
+  private FilePersistor filePersistor;
 
   public CustomerProfile() {
     customer = new Customer();
@@ -34,6 +34,14 @@ public class CustomerProfile {
     this.car = car;
   }
 
+  private FilePersistor getFilePersistor() {
+    return filePersistor;
+  }
+
+  public void setFilePersistor(final FilePersistor filePersistor) {
+    this.filePersistor = filePersistor;
+  }
+
   public void printCustomerDetails() {
     System.out.println(customer.toString());
 
@@ -42,15 +50,11 @@ public class CustomerProfile {
 
   public void writeSingleProfileToTextFile(final String name) throws IOException {
     final String str = customer.toString() + "\n" + car.toString();
-
+    final byte[] strToBytes = str.getBytes();
     final Path path = Paths.get("");
     final String dirPath = path.toAbsolutePath().toString();
     final Path currentDirPath = Paths.get(dirPath + "/" + name + ".txt");
-    final byte[] strToBytes = str.getBytes();
-
-    Files.write(currentDirPath, strToBytes);
-
-    final String read = Files.readAllLines(currentDirPath).get(0);
+    getFilePersistor().persistData(currentDirPath, strToBytes);
   }
 
   @Override
