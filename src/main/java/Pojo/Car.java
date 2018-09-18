@@ -1,3 +1,5 @@
+package Pojo;
+
 public class Car {
 
   private String registration, make, model, engineSize;
@@ -51,7 +53,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car: \n" +
+    return "Pojo.Car: \n" +
         " registration: " + registration +
         ",\n make: " + make +
         ",\n model: " + model +

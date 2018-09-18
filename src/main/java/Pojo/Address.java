@@ -1,3 +1,5 @@
+package Pojo;
+
 public class Address {
 
   private String postcode, houseNumber, street, city;
@@ -50,7 +52,7 @@ public class Address {
 
   @Override
   public String toString() {
-    return "Address: \n" +
+    return "Pojo.Address: \n" +
         "postcode: " + postcode +
         ", \nhouseNumber: " + houseNumber +
         ", \nstreet: " + street +
