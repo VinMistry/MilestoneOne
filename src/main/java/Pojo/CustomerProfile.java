@@ -13,6 +13,24 @@ public class CustomerProfile {
 
   }
 
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    } else if (obj == null) {
+      return false;
+    } else if (obj instanceof CustomerProfile) {
+      final CustomerProfile customerProfile = (CustomerProfile) obj;
+      if (customerProfile.getCustomer() == null && customer == null || customerProfile.getAddress() == null && address == null
+          || customerProfile.getCar() == null && car == null) {
+        return true;
+      } else if (customerProfile.getCar().equals(customer) || customerProfile.getAddress().equals(address) || customerProfile.getCar().equals(car)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public CustomerProfile(final Customer customer, final Address address, final Car car) {
     this.customer = customer;
     this.address = address;
