@@ -17,7 +17,8 @@ public class JsonFileCreator implements FileCreator {
   }
 
   @Override
-  public void outputFileFromObject(final Object object) {
+  public void outputFileFromObject(final String name, final Object object) {
+    getFilePaths().setFileName(name);
     final ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setVisibility(PropertyAccessor.GETTER, Visibility.PUBLIC_ONLY);
     objectMapper.setVisibility(PropertyAccessor.SETTER, Visibility.NONE);
@@ -31,8 +32,8 @@ public class JsonFileCreator implements FileCreator {
   public void outputFilesFromArray(final ArrayList<Object> arrayList) {
     int counter = 1;
     for (final Object object : arrayList) {
-      getFilePaths().setFileName("JsonFile" + Integer.toString(counter));
-      outputFileFromObject(object);
+
+      outputFileFromObject("JsonFile" + Integer.toString(counter), object);
       counter++;
     }
   }

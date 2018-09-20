@@ -1,5 +1,8 @@
 package Pojo;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Customer {
 
   private String firstName, lastName;
@@ -28,24 +31,6 @@ public class Customer {
 
   public void setLastName(final String lastName) {
     this.lastName = lastName;
-  }
-
-  @Override
-  public boolean equals(final Object obj) {
-    if (this == obj) {
-      return true;
-    } else if (obj == null) {
-      return false;
-    } else if (obj instanceof Customer) {
-      final Customer customer = (Customer) obj;
-      if ((customer.getFirstName() == null && firstName == null) && (customer.getLastName() == null && lastName == null)) {
-        return true;
-      } else if (customer.getFirstName().equals(firstName) && customer.getLastName().equals(lastName)) {
-        return true;
-      }
-
-    }
-    return false;
   }
 
   @Override

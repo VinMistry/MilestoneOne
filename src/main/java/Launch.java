@@ -57,7 +57,7 @@ public class Launch {
     ArrayList<Object> customerProfileArrayList = new ArrayList<>();
     final CsvInput csvInput = new CsvInput();
     try {
-      customerProfileArrayList = csvInput.csvInputUsingJackson(myfile.getCsvInputFilePath());
+      customerProfileArrayList = csvInput.csvToCustomerProfiles(myfile.getCsvInputFilePath());
 
     } catch (final IOException ioE) {
       ioE.printStackTrace();

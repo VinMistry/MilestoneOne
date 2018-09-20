@@ -1,5 +1,8 @@
 package Pojo;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Car {
 
   private String registration, make, model, engineSize;

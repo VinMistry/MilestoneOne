@@ -16,7 +16,7 @@ import Pojo.CustomerProfile;
 
 public class CsvInput {
 
-  public ArrayList<Object> csvInputUsingJackson(final String fileName) throws IOException {
+  public ArrayList<Object> csvToCustomerProfiles(final String fileName) throws IOException {
     final ArrayList<Object> arrayList = new ArrayList<>();
     CustomerProfile customerProfile;
     final File csvFile = new File(fileName);

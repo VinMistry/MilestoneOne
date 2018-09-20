@@ -14,7 +14,8 @@ public class TextFileCreator implements FileCreator {
   }
 
   @Override
-  public void outputFileFromObject(final Object object) {
+  public void outputFileFromObject(final String name, final Object object) {
+    getFilePaths().setFileName(name);
     final byte[] stringBytes = object.toString().getBytes();
     try {
       Files.write(Paths.get(getFilePaths().getTextOutputFilePath()), stringBytes);
@@ -27,8 +28,8 @@ public class TextFileCreator implements FileCreator {
   public void outputFilesFromArray(final ArrayList<Object> arrayList) {
     int counter = 1;
     for (final Object object : arrayList) {
-      getFilePaths().setFileName("TextFile" + Integer.toString(counter));
-      outputFileFromObject(object);
+
+      outputFileFromObject("TextFile" + Integer.toString(counter), object);
       counter++;
     }
   }

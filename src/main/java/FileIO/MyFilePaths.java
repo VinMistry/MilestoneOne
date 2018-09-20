@@ -24,6 +24,11 @@ public class MyFilePaths {
     return path.toAbsolutePath().toString();
   }
 
+  public String getOutputDirectoryPath() {
+    final Path path = Paths.get(getCurrentDirectoryPath() + "/outputFiles");
+    return path.toString();
+  }
+
   public String getJsonOutputFilePath() {
     final Path filePath = Paths.get(getCurrentDirectoryPath() + "/outputFiles/json/" + getFileName() + ".json");
     return filePath.toString();

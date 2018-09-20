@@ -1,5 +1,8 @@
 package Pojo;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Address {
 
   private String postcode, houseNumber, street, city;
