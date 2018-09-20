@@ -12,10 +12,10 @@ import org.junit.jupiter.api.Test;
 
 import run.Launch;
 
-class JsonFileCreatorTest {
+class TextFileCreatorTest {
 
   private ArrayList<Object> objectArrayList;
-  private JsonFileCreator jsonFileCreator;
+  private TextFileCreator textFileCreator;
   private MyFilePaths myFilePaths = new MyFilePaths();
   private File file;
 
@@ -23,37 +23,37 @@ class JsonFileCreatorTest {
   public void setUp() {
     //Create Pojo.Customer objects
     final Launch launch = new Launch();
-    jsonFileCreator = new JsonFileCreator();
+    textFileCreator = new TextFileCreator();
     objectArrayList = launch.createCustomerProfileArray();
   }
 
   @AfterEach
   public void tearDown() {
-    final File dir = new File(myFilePaths.getOutputDirectoryPath() + "/json");
+    final File dir = new File(myFilePaths.getOutputDirectoryPath() + "/text");
     try {
       FileUtils.cleanDirectory(dir);
     } catch (final IOException e) {
       e.printStackTrace();
     }
     objectArrayList = null;
-    jsonFileCreator = null;
+    textFileCreator = null;
     myFilePaths = null;
+    file = null;
   }
 
   @Test
-  void canReadOutputFileFromObject() {
-    jsonFileCreator.outputFileFromObject("testFile", objectArrayList.get(0));
+  void outputFileFromObject() {
+    textFileCreator.outputFileFromObject("testFile", objectArrayList.get(0));
     myFilePaths.setFileName("testFile");
-    file = new File(myFilePaths.getJsonOutputFilePath());
+    file = new File(myFilePaths.getTextOutputFilePath());
     Assertions.assertTrue(file.canRead());
   }
 
   @Test
   void outputFilesFromArray() {
-    jsonFileCreator.outputFilesFromArray(objectArrayList);
-    myFilePaths.setFileName("JsonFile2");
-    final File file = new File(myFilePaths.getJsonOutputFilePath());
+    textFileCreator.outputFilesFromArray(objectArrayList);
+    myFilePaths.setFileName("TextFile3");
+    final File file = new File(myFilePaths.getTextOutputFilePath());
     Assertions.assertTrue(file.canRead());
   }
-
 }
