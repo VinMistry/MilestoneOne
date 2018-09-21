@@ -71,7 +71,7 @@ public class Launch {
   public static void main(final String[] args) {
     final Launch launch = new Launch();
     launch.createTextFilesFromArray(launch.createCustomerProfileArray());
-    //launch.creatJsonsFromArray(launch.createCustomerProfileArray());
+    // launch.creatJsonsFromArray(launch.createCustomerProfileArray());
     // launch.createJsonFromCsv("mock_data");
   }
 }

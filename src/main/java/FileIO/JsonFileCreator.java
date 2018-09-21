@@ -25,6 +25,7 @@ public class JsonFileCreator implements FileCreator {
     try {
       objectMapper.writeValue(new File(getFilePaths().getJsonOutputFilePath()), object);
     } catch (final IOException ioE) {
+      
     }
   }
 

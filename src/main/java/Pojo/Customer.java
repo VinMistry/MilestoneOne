@@ -35,7 +35,7 @@ public class Customer {
 
   @Override
   public String toString() {
-    return "Pojo.Customer: \n" +
+    return "Customer: \n" +
         " firstName: " + firstName +
         ",\n lastName: " + lastName;
   }

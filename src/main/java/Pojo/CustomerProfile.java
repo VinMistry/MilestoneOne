@@ -48,7 +48,7 @@ public class CustomerProfile {
 
   @Override
   public String toString() {
-    return "Pojo.Customer Profile: \n" + getCustomer().toString() + "\n" + getAddress().toString() + "\n" + getCar().toString();
+    return "Customer Profile: \n" + getCustomer().toString() + "\n" + getAddress().toString() + "\n" + getCar().toString();
   }
 
 }

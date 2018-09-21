@@ -12,8 +12,15 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    mockitoVersion = '2.22.0'
+    jUnitVersion = '5.3.1'
+}
+
 dependencies {
     compile group: 'javax.json', name: 'javax.json-api', version: '1.0-b01'
+    testCompile("org.mockito:mockito-junit-jupiter:${mockitoVersion}")
+    testCompile("org.mockito:mockito-core:${mockitoVersion}")
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-csv', version: '2.9.6'
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
@@ -24,6 +31,5 @@ dependencies {
     testRuntimeOnly(
             'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     )
+
 }
-
-

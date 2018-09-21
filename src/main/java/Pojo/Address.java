@@ -55,7 +55,7 @@ public class Address {
 
   @Override
   public String toString() {
-    return "Pojo.Address: \n" +
+    return "Address: \n" +
         "postcode: " + postcode +
         ", \nhouseNumber: " + houseNumber +
         ", \nstreet: " + street +
