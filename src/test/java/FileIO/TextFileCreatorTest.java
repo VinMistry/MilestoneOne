@@ -16,14 +16,15 @@ class TextFileCreatorTest {
 
   private ArrayList<Object> objectArrayList;
   private TextFileCreator textFileCreator;
-  private MyFilePaths myFilePaths = new MyFilePaths();
+  private MyFilePaths myFilePaths;
   private File file;
 
   @BeforeEach
   public void setUp() {
     //Create Pojo.Customer objects
     final Launch launch = new Launch();
-    textFileCreator = new TextFileCreator();
+    myFilePaths = new MyFilePaths();
+    textFileCreator = new TextFileCreator(myFilePaths);
     objectArrayList = launch.createCustomerProfileArray();
   }
 
@@ -56,4 +57,6 @@ class TextFileCreatorTest {
     final File file = new File(myFilePaths.getTextOutputFilePath());
     Assertions.assertTrue(file.canRead());
   }
+
+
 }

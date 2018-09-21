@@ -32,7 +32,7 @@ class JsonFileCreatorTest {
   private MyFilePaths myFilePaths = new MyFilePaths();
   private File file;
   private String expectedJSON = "{\"customer\":{\"firstName\":\"Vinesh\",\"lastName\":\"Mistry\"},\"address\":{\"postcode\":\"BL3 6TS\",\"houseNumber\":\"31\",\"street\":\"Street\",\"city\":\"Bolton\"},\"car\":{\"registration\":\"CFM 139W\",\"make\":\"BMW\",\"model\":\"M3\",\"engineSize\":\"1\"}}";
-
+  private ObjectMapper objectMapper;
 
   private Customer customer;
   private CustomerProfile customerProfile;
@@ -44,7 +44,8 @@ class JsonFileCreatorTest {
   public void setUp() {
     //Create Pojo.Customer objects
     final Launch launch = new Launch();
-    jsonFileCreator = new JsonFileCreator();
+    objectMapper = new ObjectMapper();
+    jsonFileCreator = new JsonFileCreator(myFilePaths, objectMapper);
     objectArrayList = launch.createCustomerProfileArray();
   }
 

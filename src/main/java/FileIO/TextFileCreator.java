@@ -7,7 +7,11 @@ import java.util.ArrayList;
 
 public class TextFileCreator implements FileCreator {
 
-  private MyFilePaths filePaths = new MyFilePaths();
+  private MyFilePaths filePaths;
+
+  public TextFileCreator(final MyFilePaths filePaths) {
+    this.filePaths = filePaths;
+  }
 
   public MyFilePaths getFilePaths() {
     return filePaths;

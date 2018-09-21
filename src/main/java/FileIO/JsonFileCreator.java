@@ -10,7 +10,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonFileCreator implements FileCreator {
 
-  private MyFilePaths filePaths = new MyFilePaths();
+  private MyFilePaths filePaths;
+  private ObjectMapper objectMapper;
+
+  public JsonFileCreator(final MyFilePaths filePaths, final ObjectMapper objectMapper) {
+    this.filePaths = filePaths;
+    this.objectMapper = objectMapper;
+  }
 
   public MyFilePaths getFilePaths() {
     return filePaths;
@@ -19,13 +25,12 @@ public class JsonFileCreator implements FileCreator {
   @Override
   public void outputFileFromObject(final String name, final Object object) {
     getFilePaths().setFileName(name);
-    final ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setVisibility(PropertyAccessor.GETTER, Visibility.PUBLIC_ONLY);
     objectMapper.setVisibility(PropertyAccessor.SETTER, Visibility.NONE);
     try {
       objectMapper.writeValue(new File(getFilePaths().getJsonOutputFilePath()), object);
     } catch (final IOException ioE) {
-      
+
     }
   }
 

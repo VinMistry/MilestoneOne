@@ -3,6 +3,8 @@ package run;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import FileIO.CsvInput;
 import FileIO.JsonFileCreator;
 import FileIO.MyFilePaths;
@@ -43,19 +45,19 @@ public class Launch {
 
   public void createTextFilesFromArray(final ArrayList<Object> objectArrayList) {
     final MyFilePaths myfile = getMyFilePath();
-    final TextFileCreator textFileCreator = new TextFileCreator();
+    final TextFileCreator textFileCreator = new TextFileCreator(myfile);
     textFileCreator.outputFilesFromArray(objectArrayList);
   }
 
   public void creatJsonsFromArray(final ArrayList<Object> objectArrayList) {
-    final JsonFileCreator jsonFileCreator = new JsonFileCreator();
+    final JsonFileCreator jsonFileCreator = new JsonFileCreator(getMyFilePath(), new ObjectMapper());
     jsonFileCreator.outputFilesFromArray(objectArrayList);
   }
 
   public void createJsonFromCsv(final String filename) {
     final MyFilePaths myfile = getMyFilePath();
     myfile.setFileName(filename);
-    final JsonFileCreator jsonFileCreator = new JsonFileCreator();
+    final JsonFileCreator jsonFileCreator = new JsonFileCreator(myfile, new ObjectMapper());
     ArrayList<Object> customerProfileArrayList = new ArrayList<>();
     final CsvInput csvInput = new CsvInput();
     try {
@@ -70,8 +72,8 @@ public class Launch {
 
   public static void main(final String[] args) {
     final Launch launch = new Launch();
-    launch.createTextFilesFromArray(launch.createCustomerProfileArray());
-    // launch.creatJsonsFromArray(launch.createCustomerProfileArray());
+    // launch.createTextFilesFromArray(launch.createCustomerProfileArray());
+    launch.creatJsonsFromArray(launch.createCustomerProfileArray());
     // launch.createJsonFromCsv("mock_data");
   }
 }
